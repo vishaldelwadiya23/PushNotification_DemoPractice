@@ -17,12 +17,14 @@ class SecondVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     // move data to previous VC
     @IBAction func btnMoveToPreviousFirstVC(_ sender: Any) {
         
-        NotificationCenter.default.post(name: .food, object: nil)
+        // pass user info in previous vc
+        let dict = ["name" : ["Egg Food Image Show",lblFood.text]]
+        
+        NotificationCenter.default.post(name: .food, object: nil, userInfo: dict)
         self.navigationController?.popViewController(animated: true)
     }
 

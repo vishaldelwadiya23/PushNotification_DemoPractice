@@ -54,7 +54,7 @@ class HomeVC: UIViewController, UNUserNotificationCenterDelegate {
         }
         
         // local notification Trigger
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 2, repeats: false)
         let identifier = "Main Identifier"
         
         // local notification Request

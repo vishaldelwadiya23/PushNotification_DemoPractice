@@ -30,8 +30,12 @@ class FirstVC: UIViewController {
     
     // notification method
     @objc func foodNotification(notification: Notification) {
-        lblFoodTitle.text = "egg food title"
+        //lblFoodTitle.text = "egg food title"
         imgFood.image = #imageLiteral(resourceName: "Egg-2")
+        
+        //get dictionary to second vc
+        let name = notification.userInfo!["name"] as? [String]
+        lblFoodTitle.text = name![0]
     }
     
     // move to second vc
