@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SecondVC-->
+        <scene sceneID="bgh-VQ-2nZ">
+            <objects>
+                <viewController storyboardIdentifier="SecondVC" id="snK-us-1ZH" customClass="SecondVC" customModule="PushNotification_DemoPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fii-ly-4Bi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPW-L3-yZv">
+                                <rect key="frame" x="20" y="50" width="335" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd8-4t-FjX">
+                                        <rect key="frame" x="76.5" y="51" width="182" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Move to Previous FirstVC"/>
+                                        <connections>
+                                            <action selector="btnMoveToPreviousFirstVC:" destination="snK-us-1ZH" eventType="touchUpInside" id="gwY-9W-6GR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egg Bucket Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCR-pF-3xT">
+                                        <rect key="frame" x="102.5" y="10" width="130" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="NCR-pF-3xT" firstAttribute="centerX" secondItem="UPW-L3-yZv" secondAttribute="centerX" id="4KZ-r3-OuG"/>
+                                    <constraint firstItem="Nd8-4t-FjX" firstAttribute="centerX" secondItem="UPW-L3-yZv" secondAttribute="centerX" id="EBI-hf-SjD"/>
+                                    <constraint firstItem="Nd8-4t-FjX" firstAttribute="top" secondItem="NCR-pF-3xT" secondAttribute="bottom" constant="20" id="Izt-Oc-0VL"/>
+                                    <constraint firstAttribute="height" constant="100" id="cTa-WX-uZ5"/>
+                                    <constraint firstItem="NCR-pF-3xT" firstAttribute="top" secondItem="UPW-L3-yZv" secondAttribute="top" constant="10" id="eoR-rV-s1g"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mQq-vk-xxy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UPW-L3-yZv" firstAttribute="top" secondItem="mQq-vk-xxy" secondAttribute="top" constant="50" id="K4R-A5-5Iy"/>
+                            <constraint firstItem="UPW-L3-yZv" firstAttribute="leading" secondItem="mQq-vk-xxy" secondAttribute="leading" constant="20" id="iaB-nl-SRX"/>
+                            <constraint firstItem="mQq-vk-xxy" firstAttribute="trailing" secondItem="UPW-L3-yZv" secondAttribute="trailing" constant="20" id="qsb-Yv-tbM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblFood" destination="NCR-pF-3xT" id="VR9-2b-Kqf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mKB-OG-hgN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1765.5999999999999" y="817.24137931034488"/>
+        </scene>
+        <!--ThirdVC-->
+        <scene sceneID="IxO-hb-sph">
+            <objects>
+                <viewController storyboardIdentifier="ThirdVC" id="CkR-yN-G5z" customClass="ThirdVC" customModule="PushNotification_DemoPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b6x-fi-vm3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5BS-yr-1GP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dw5-kc-iut" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2463" y="817"/>
+        </scene>
+        <!--FourthVC-->
+        <scene sceneID="g1z-UQ-POP">
+            <objects>
+                <viewController storyboardIdentifier="FourthVC" id="7Mx-LC-2JN" customClass="FourthVC" customModule="PushNotification_DemoPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TRn-FW-cDv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="81G-ZT-Jmx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LwQ-6R-a2P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3167" y="817"/>
+        </scene>
+        <!--FifthVC-->
+        <scene sceneID="ady-yX-Qi8">
+            <objects>
+                <viewController storyboardIdentifier="FifthVC" id="wEE-mg-8cc" customClass="FifthVC" customModule="PushNotification_DemoPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0x7-22-TvP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="kZA-Uq-W8f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rMK-K8-LlM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3878" y="817"/>
+        </scene>
+        <!--SixVC-->
+        <scene sceneID="BYU-7F-QAT">
+            <objects>
+                <viewController storyboardIdentifier="SixVC" id="Lj3-8T-wk0" customClass="SixVC" customModule="PushNotification_DemoPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wuw-IT-CDq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XMF-1E-5xd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ufu-r2-0mP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4562" y="817"/>
+        </scene>
+        <!--SevenVC-->
+        <scene sceneID="tN8-PQ-EOl">
+            <objects>
+                <viewController storyboardIdentifier="SevenVC" id="qgp-51-cdh" customClass="SevenVC" customModule="PushNotification_DemoPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jAE-lk-Xsx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="w3Z-SE-bme"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6L-9n-0DE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5246" y="817"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

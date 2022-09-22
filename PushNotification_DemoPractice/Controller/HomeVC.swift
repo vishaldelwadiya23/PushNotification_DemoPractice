@@ -11,16 +11,16 @@ import UserNotifications
 @available(iOS 10.0, *)
 class HomeVC: UIViewController, UNUserNotificationCenterDelegate {
 
-    // current notification initialized
+    // current local notification initialized
     let notificationCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // notification delegate set
+        // local notification delegate set
         notificationCenter.delegate = self
         
-        // notification authorization request to user
+        // local notification authorization request to user
         notificationCenter.requestAuthorization(options: [.alert,.badge,.sound]) { (granted, error) in
             
             guard granted else { return }
@@ -34,7 +34,7 @@ class HomeVC: UIViewController, UNUserNotificationCenterDelegate {
     // Press btn to show Local Notification
     @IBAction func btnLocalNotificationClicked(_ sender: Any) {
         
-        // notification Content
+        // local notification Content
         let content = UNMutableNotificationContent()
         content.title = "Local Notification"
         content.body = "This is local notificaion example"
@@ -42,7 +42,7 @@ class HomeVC: UIViewController, UNUserNotificationCenterDelegate {
         content.badge = 1
         content.sound = UNNotificationSound.default
         
-        // UserInfo dict attech to notification
+        // UserInfo dict attech to local notification
         content.userInfo = ["name" : "Vishal Delwadiya"]
         
         // content Image (image fetch in url format)
@@ -53,19 +53,19 @@ class HomeVC: UIViewController, UNUserNotificationCenterDelegate {
             content.attachments = [attachment]
         }
         
-        // notification Trigger
+        // local notification Trigger
         let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5, repeats: false)
         let identifier = "Main Identifier"
         
-        // notification Request
+        // local notification Request
         let request = UNNotificationRequest.init(identifier: identifier, content: content, trigger: trigger)
         
-        // add request to notification center
+        // add request to local notification center
         notificationCenter.add(request) { (error) in
             print("\(error?.localizedDescription)")
         }
         
-        // notification Action
+        // local notification Action
         let like = UNNotificationAction.init(identifier: "Like", title: "Like", options: .foreground)
         let delete = UNNotificationAction.init(identifier: "Delete", title: "Delete", options: .destructive)
         let category = UNNotificationCategory.init(identifier: content.categoryIdentifier, actions: [like,delete], intentIdentifiers: [], options: [])
@@ -74,10 +74,12 @@ class HomeVC: UIViewController, UNUserNotificationCenterDelegate {
         
     }
     
+    // local notification comming in app running in foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert,.badge,.sound])
     }
     
+    // local notification user info(dict) in response delegate to click local notification method
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         if #available(iOS 13.0, *) {
             let firstVC = self.storyboard?.instantiateViewController(identifier: "FirstVC") as! FirstVC

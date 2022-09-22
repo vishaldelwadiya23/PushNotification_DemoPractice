@@ -12,24 +12,40 @@ class FirstVC: UIViewController {
     @IBOutlet weak var lblMessage: UILabel!
     var strText = ""
     
+    // Outlet for notification
+    @IBOutlet weak var imgFood: UIImageView!
+    @IBOutlet weak var lblFoodTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        // notification click to display message pass by HomeVC
+        // local notification click to display message pass by HomeVC
         lblMessage.text = strText
+        
+        // pass data using notification observer
+        NotificationCenter.default.addObserver(self, selector: #selector(foodNotification(notification:)), name: .food, object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // notification method
+    @objc func foodNotification(notification: Notification) {
+        lblFoodTitle.text = "egg food title"
+        imgFood.image = #imageLiteral(resourceName: "Egg-2")
     }
-    */
+    
+    // move to second vc
+    @IBAction func btnMoveToSecondVC(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MoreVC", bundle: nil)
+        if #available(iOS 13.0, *) {
+            let secondVC = storyboard.instantiateViewController(identifier: "SecondVC") as! SecondVC
+            self.navigationController?.pushViewController(secondVC, animated: true)
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
 
+extension Notification.Name {
+    static let food = Notification.Name("foodImg")
 }

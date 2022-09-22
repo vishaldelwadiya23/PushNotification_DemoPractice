@@ -9,6 +9,9 @@ import UIKit
 
 class SecondVC: UIViewController {
 
+    // Outlet
+    @IBOutlet weak var lblFood: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,14 +19,11 @@ class SecondVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // move data to previous VC
+    @IBAction func btnMoveToPreviousFirstVC(_ sender: Any) {
+        
+        NotificationCenter.default.post(name: .food, object: nil)
+        self.navigationController?.popViewController(animated: true)
     }
-    */
 
 }
