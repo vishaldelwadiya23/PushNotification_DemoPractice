@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: - data to hex string
+//MARK: - Data to Hex string
 // use for push notification device token data to hex string
 extension Data {
     var hexString: String {
