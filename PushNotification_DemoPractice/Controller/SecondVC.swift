@@ -16,6 +16,7 @@ class SecondVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
 
     // move data to previous VC

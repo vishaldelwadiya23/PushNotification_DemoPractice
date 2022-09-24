@@ -81,17 +81,13 @@ class HomeVC: UIViewController, UNUserNotificationCenterDelegate {
     
     // local notification user info(dict) in response delegate to click local notification method
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        if #available(iOS 13.0, *) {
-            let firstVC = self.storyboard?.instantiateViewController(identifier: "FirstVC") as! FirstVC
-            
-            if let dict = response.notification.request.content.userInfo as? [AnyHashable:Any] {
-                firstVC.strText = dict["name"] as! String
-            }
-            self.navigationController?.pushViewController(firstVC, animated: true)
-            
-        } else {
-            // Fallback on earlier versions
+        let firstVC = self.storyboard?.instantiateViewController(identifier: "FirstVC") as! FirstVC
+        
+        if let dict = response.notification.request.content.userInfo as? [AnyHashable:Any] {
+            firstVC.strText = dict["name"] as! String
         }
+        self.navigationController?.pushViewController(firstVC, animated: true)
+        
     }
     /*
     // MARK: - Navigation

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hb6-DQ-TGM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scroll Reload TableVC-->
+        <scene sceneID="VQv-NF-b2S">
+            <objects>
+                <viewController storyboardIdentifier="ScrollReloadTableVC" id="Hb6-DQ-TGM" customClass="ScrollReloadTableVC" customModule="PushNotification_DemoPractice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jOb-Ym-pQl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O5o-Jg-uFe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hb6-DQ-TGM" id="Q70-gs-ukp"/>
+                                    <outlet property="delegate" destination="Hb6-DQ-TGM" id="pmu-ZO-hie"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aud-14-qL1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aud-14-qL1" firstAttribute="bottom" secondItem="O5o-Jg-uFe" secondAttribute="bottom" id="Ihv-AR-aoz"/>
+                            <constraint firstItem="aud-14-qL1" firstAttribute="trailing" secondItem="O5o-Jg-uFe" secondAttribute="trailing" id="Tpb-h8-RZr"/>
+                            <constraint firstItem="O5o-Jg-uFe" firstAttribute="leading" secondItem="aud-14-qL1" secondAttribute="leading" id="cFo-MH-tCM"/>
+                            <constraint firstItem="O5o-Jg-uFe" firstAttribute="top" secondItem="aud-14-qL1" secondAttribute="top" id="oHl-4T-byq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tblTopAlbums" destination="O5o-Jg-uFe" id="ra3-9z-wVt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7uz-JE-bC0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.6" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

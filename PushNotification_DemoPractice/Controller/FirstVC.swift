@@ -42,6 +42,11 @@ class FirstVC: UIViewController {
     @IBAction func btnMoveToSecondVC(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MoreVC", bundle: nil)
         if #available(iOS 13.0, *) {
+            
+            // use storyboard extension to navigate
+            //let sv = UIStoryboard.storyboardNavigation(storyboard: "MoreVC", identifier: "SecondVC") as! SecondVC
+            //self.navigationController?.pushViewController(sv, animated: true)
+            
             let secondVC = storyboard.instantiateViewController(identifier: "SecondVC") as! SecondVC
             self.navigationController?.pushViewController(secondVC, animated: true)
         } else {
