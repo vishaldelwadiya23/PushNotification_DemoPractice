@@ -7,6 +7,9 @@
 
 import UIKit
 import Kingfisher
+import Alamofire
+import SystemConfiguration
+import Foundation
 
 class ScrollReloadTableVC: UIViewController {
 
@@ -15,6 +18,8 @@ class ScrollReloadTableVC: UIViewController {
 
     @IBOutlet weak var tblTopAlbums: UITableView!
         
+    let topAlbumViewModel: TopAlbumViewModel = TopAlbumViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,32 +27,77 @@ class ScrollReloadTableVC: UIViewController {
         
         getTopAlbumData(item: 50)
         
-        let nib = UINib(nibName: "ScrollReloadTableCell", bundle: nil)
-        tblTopAlbums.register(nib, forCellReuseIdentifier: "ScrollReloadTableCell")
+        let nib = UINib(nibName: Constant.ScrollReloadCellIdentifier, bundle: nil)
+        tblTopAlbums.register(nib, forCellReuseIdentifier: Constant.ScrollReloadCellIdentifier)
     }
     
     func getTopAlbumData(item: Int) {
         
-        let strUrl = String(format: "https://rss.applemarketingtools.com/api/v2/in/music/most-played/%d/albums.json", item)
-        print(strUrl)
-        let url = URL(string: strUrl)
-
-        Webservices.getTopAlbumsApi(url: url!) { (response) in
-            
-            self.aryDisplayMore = response.feed.results
-            
-            for index in (self.aryResult.count...self.aryResult.count + 10) {
-                self.aryResult.append(self.aryDisplayMore[index])
-                //print(self.aryResult)
-            }
-            
-            DispatchQueue.main.async {
-                self.tblTopAlbums.reloadData()
+        // urlsession use
+        /*topAlbumViewModel.getAlbums(item: item) { (responseData) in
+            if responseData != nil {
+                self.aryDisplayMore = (responseData?.feed.results)!
+                
+                print(self.aryDisplayMore)
+                print(self.aryResult)
+                for index in (self.aryResult.count...self.aryResult.count + 9) {
+                    
+                    print(index)
+                    print(self.aryDisplayMore[index])
+                    self.aryResult.append(self.aryDisplayMore[index])
+                    //print(self.aryResult)
+                }
+                
+                DispatchQueue.main.async {
+                    self.tblTopAlbums.reloadData()
+                }
             }
         }
+*/
+        // alamofier use
+/*        let strUrl = Constant.BASEAPI
+        let url = URL(string: strUrl)
+        print(url)
+        // option 1 method call
+        MWebServices.callRequestAPI(strUrl, type: .get, header: nil, param: nil, resultType: TopAlbumsModel.self) { (responseData) in
+            
+            if responseData != nil {
+                if let responseData = responseData {
+                    
+                    self.aryDisplayMore = responseData.feed.results
+                    
+                    for index in (self.aryResult.count...self.aryResult.count + 9) {
+                        self.aryResult.append(self.aryDisplayMore[index])
+                        //print(self.aryResult)
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.tblTopAlbums.reloadData()
+                    }
+                }
+            }
+        } failureBlock: { (error) in
+            print(error?.localizedDescription as Any)
+        }
+*/
+        
+        // second option call method
+//        Webservices.getTopAlbumsApi(url: url!) { (response) in
+//
+//            self.aryDisplayMore = response.feed.results
+//
+//            for index in (self.aryResult.count...self.aryResult.count + 10) {
+//                self.aryResult.append(self.aryDisplayMore[index])
+//                //print(self.aryResult)
+//            }
+//
+//            DispatchQueue.main.async {
+//                self.tblTopAlbums.reloadData()
+//            }
+//        }
     }
-
 }
+
 
 extension ScrollReloadTableVC: UITableViewDataSource,UITableViewDelegate {
     
@@ -59,7 +109,7 @@ extension ScrollReloadTableVC: UITableViewDataSource,UITableViewDelegate {
         return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScrollReloadTableCell", for: indexPath) as! ScrollReloadTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.ScrollReloadCellIdentifier, for: indexPath) as! ScrollReloadTableCell
         cell.lblArtistName.text = aryResult[indexPath.row].artistName
         cell.lblName.text = aryResult[indexPath.row].name
         let url = URL(string: aryResult[indexPath.row].artworkUrl100)
@@ -79,8 +129,10 @@ extension ScrollReloadTableVC: UITableViewDataSource,UITableViewDelegate {
         // display 10 data in tableview
         tableView.addLoading(indexPath) {
             
-            for index in (self.aryResult.count...self.aryResult.count + 10) {
+            for index in (self.aryResult.count...self.aryResult.count + 9) {
                 
+                //print(index)
+                //print(self.aryResult.count)
                 if self.aryDisplayMore.count > index {
                     
                     self.aryResult.append(self.aryDisplayMore[index])
@@ -91,11 +143,10 @@ extension ScrollReloadTableVC: UITableViewDataSource,UITableViewDelegate {
                     
                     //self.tblTopAlbums.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
 
-                    print(index)
-
+                    //print(index)
                 }
                 
-                print(index)
+                //print(index)
             }
 
             // call webservice and pass data to display

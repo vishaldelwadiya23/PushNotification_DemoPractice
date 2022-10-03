@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+ 
 class FirstVC: UIViewController {
 
     @IBOutlet weak var lblMessage: UILabel!
@@ -40,7 +40,7 @@ class FirstVC: UIViewController {
     
     // move to second vc
     @IBAction func btnMoveToSecondVC(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MoreVC", bundle: nil)
+        let storyboard = UIStoryboard(name: Constant.MoreVCStoryboard, bundle: nil)
         if #available(iOS 13.0, *) {
             
             // use storyboard extension to navigate

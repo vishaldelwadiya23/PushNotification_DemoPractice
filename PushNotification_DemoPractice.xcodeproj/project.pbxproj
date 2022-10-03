@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,8 @@
 		0EA5F0EF28DC1AB100A8C057 /* SixVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA5F0EE28DC1AB100A8C057 /* SixVC.swift */; };
 		0EA5F0F228DC1AC600A8C057 /* SevenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA5F0F128DC1AC600A8C057 /* SevenVC.swift */; };
 		0EA5F0F628DC1FF900A8C057 /* MoreVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA5F0F428DC1FF900A8C057 /* MoreVC.storyboard */; };
+		0EA603E928E70F0F0040A586 /* HttpUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA603E828E70F0F0040A586 /* HttpUtility.swift */; };
+		0EA603EE28E71EB60040A586 /* TopAlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA603ED28E71EB60040A586 /* TopAlbumViewModel.swift */; };
 		3AB6F11BDCF4B536415CB235 /* Pods_PushNotification_DemoPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5F7DACA62DDA428EFE7795 /* Pods_PushNotification_DemoPractice.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		0EA5F0EE28DC1AB100A8C057 /* SixVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixVC.swift; sourceTree = "<group>"; };
 		0EA5F0F128DC1AC600A8C057 /* SevenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenVC.swift; sourceTree = "<group>"; };
 		0EA5F0F528DC1FF900A8C057 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PushNotification_DemoPractice/Storyboard/Base.lproj/MoreVC.storyboard; sourceTree = "<group>"; };
+		0EA603E828E70F0F0040A586 /* HttpUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpUtility.swift; sourceTree = "<group>"; };
+		0EA603ED28E71EB60040A586 /* TopAlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlbumViewModel.swift; sourceTree = "<group>"; };
 		5DFB10405B7B1C543E1DBB23 /* Pods-PushNotification_DemoPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNotification_DemoPractice.release.xcconfig"; path = "Target Support Files/Pods-PushNotification_DemoPractice/Pods-PushNotification_DemoPractice.release.xcconfig"; sourceTree = "<group>"; };
 		6B5F7DACA62DDA428EFE7795 /* Pods_PushNotification_DemoPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushNotification_DemoPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D030B4B31E527262BE650D9 /* Pods-PushNotification_DemoPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushNotification_DemoPractice.debug.xcconfig"; path = "Target Support Files/Pods-PushNotification_DemoPractice/Pods-PushNotification_DemoPractice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,7 +101,9 @@
 		0E1D2F9328D8BA4300D988C2 /* PushNotification_DemoPractice */ = {
 			isa = PBXGroup;
 			children = (
+				0EA603EC28E71E750040A586 /* ViewModel */,
 				0E96B1D228DB6322006727CC /* Egg-6.jpg */,
+				0EA603E728E70ED00040A586 /* Utility */,
 				0E1D2FB028D8F13A00D988C2 /* Common */,
 				0E1D2FAB28D8F0BF00D988C2 /* Extension */,
 				0E96B1C628DB3E1F006727CC /* App&SceneDelegate */,
@@ -121,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				0E1D2FB228D8F19100D988C2 /* Constants.swift */,
-				0E8A2E7E28DDB20700942985 /* Webservices.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -197,6 +202,23 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		0EA603E728E70ED00040A586 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0EA603E828E70F0F0040A586 /* HttpUtility.swift */,
+				0E8A2E7E28DDB20700942985 /* Webservices.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		0EA603EC28E71E750040A586 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0EA603ED28E71EB60040A586 /* TopAlbumViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		71706B5B0EBAFF028CE69657 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +233,6 @@
 				8D030B4B31E527262BE650D9 /* Pods-PushNotification_DemoPractice.debug.xcconfig */,
 				5DFB10405B7B1C543E1DBB23 /* Pods-PushNotification_DemoPractice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -227,6 +248,7 @@
 				0E1D2F8E28D8BA4300D988C2 /* Frameworks */,
 				0E1D2F8F28D8BA4300D988C2 /* Resources */,
 				8E46EA7BB64C0B96335E20E5 /* [CP] Embed Pods Frameworks */,
+				0E9FB03428EB0738003A1EC6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -287,6 +309,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E9FB03428EB0738003A1EC6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 		8E46EA7BB64C0B96335E20E5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +378,7 @@
 				0EA5F0E328DC19BF00A8C057 /* SecondVC.swift in Sources */,
 				0E8A2E8428DDB66B00942985 /* ScrollReloadTableCell.swift in Sources */,
 				0EA5F0EF28DC1AB100A8C057 /* SixVC.swift in Sources */,
+				0EA603EE28E71EB60040A586 /* TopAlbumViewModel.swift in Sources */,
 				0E96B1C328DB3D99006727CC /* FirstVC.swift in Sources */,
 				0E8A2E7B28DD928E00942985 /* TopAlbumsModel.swift in Sources */,
 				0EA5F0E628DC1A1400A8C057 /* ThirdVC.swift in Sources */,
@@ -347,6 +387,7 @@
 				0E1D2F9528D8BA4300D988C2 /* AppDelegate.swift in Sources */,
 				0E8A2E7228DD855F00942985 /* ScrollReloadTableVC.swift in Sources */,
 				0EA5F0EC28DC1A8800A8C057 /* FifthVC.swift in Sources */,
+				0EA603E928E70F0F0040A586 /* HttpUtility.swift in Sources */,
 				0EA5F0F228DC1AC600A8C057 /* SevenVC.swift in Sources */,
 				0E1D2F9728D8BA4300D988C2 /* SceneDelegate.swift in Sources */,
 			);
