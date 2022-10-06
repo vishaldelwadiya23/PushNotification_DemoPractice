@@ -133,6 +133,7 @@ class MWebServices: NSObject {
                 if let data = response.data {
                     //Constants.printLog(str:"Print Server Error: " + String(data: data, encoding: String.Encoding.utf8)!)
                     //Constant.printLog(str: String(data: data, encoding: String.Encoding.utf8) ?? "")
+
                 }
                 //Constant.printLog(str:"---- REQUEST URL RESPONSE : \(urlWithUTF8!)\n\(response.result)")
                 

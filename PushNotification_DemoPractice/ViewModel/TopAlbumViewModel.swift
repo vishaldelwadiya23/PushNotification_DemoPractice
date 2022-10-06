@@ -9,13 +9,13 @@ import Foundation
 
 struct TopAlbumViewModel {
     
-    func getAlbums(item: Int, completionHandler: @escaping(_ result: TopAlbumsModel?) -> Void) {
+    func getAlbums(url: URL, completionHandler: @escaping(_ result: TopAlbumsModel?) -> Void) {
                 
-        let strUrl = Constant.BASEAPI
+        //let strUrl = Constant.BASEAPI
         //print(strUrl)
-        let url = URL(string: strUrl)
+        //let url = URL(string: strUrl)
         
-        HttpUtility.shared.getApiData(requestUrl: url!, resultType: TopAlbumsModel.self) { (topAlbumApiResponse) in
+        HttpUtility.shared.getApiData(requestUrl: url, resultType: TopAlbumsModel.self) { (topAlbumApiResponse) in
             
             _ = completionHandler(topAlbumApiResponse)
         }

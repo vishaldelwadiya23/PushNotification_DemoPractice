@@ -10,8 +10,13 @@ import Foundation
 class Constant {
     
     // API
-    static let BASEAPI = String(format: "https://rss.applemarketingtools.com/api/v2/in/music/most-played/%d/albums.json", apiTotalAlbumsCount)
-    static var apiTotalAlbumsCount = 50
+    static func apiWithAlbumsDisplay(itemShow: Int) -> String {
+        let api = String(format: "https://rss.applemarketingtools.com/api/v2/in/music/most-played/%d/albums.json", itemShow)
+        return api
+    }
+    
+    //static let BASEAPI = String(format: "https://rss.applemarketingtools.com/api/v2/in/music/most-played/%d/albums.json", apiTotalAlbumsCount)
+    //static var apiTotalAlbumsCount = 50
 
     // Identifier
     static let ScrollReloadCellIdentifier = "ScrollReloadTableCell"

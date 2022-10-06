@@ -25,16 +25,20 @@ class ScrollReloadTableVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        getTopAlbumData(item: 50)
+        // url with append item show
+        let strUrl = Constant.apiWithAlbumsDisplay(itemShow: 50)
+        let urlWithItem = URL(string: strUrl)
+        
+        getTopAlbumData(url: urlWithItem!)
         
         let nib = UINib(nibName: Constant.ScrollReloadCellIdentifier, bundle: nil)
         tblTopAlbums.register(nib, forCellReuseIdentifier: Constant.ScrollReloadCellIdentifier)
     }
     
-    func getTopAlbumData(item: Int) {
+    func getTopAlbumData(url: URL) {
         
         // urlsession use
-        /*topAlbumViewModel.getAlbums(item: item) { (responseData) in
+        topAlbumViewModel.getAlbums(url: url) { (responseData) in
             if responseData != nil {
                 self.aryDisplayMore = (responseData?.feed.results)!
                 
@@ -53,13 +57,13 @@ class ScrollReloadTableVC: UIViewController {
                 }
             }
         }
-*/
+
         // alamofier use
-/*        let strUrl = Constant.BASEAPI
-        let url = URL(string: strUrl)
-        print(url)
+/*       //let strUrl = Constant.BASEAPI
+        //let url = URL(string: strUrl)
+        //print(url)
         // option 1 method call
-        MWebServices.callRequestAPI(strUrl, type: .get, header: nil, param: nil, resultType: TopAlbumsModel.self) { (responseData) in
+        MWebServices.callRequestAPI(url, type: .get, header: nil, param: nil, resultType: TopAlbumsModel.self) { (responseData) in
             
             if responseData != nil {
                 if let responseData = responseData {
@@ -82,7 +86,7 @@ class ScrollReloadTableVC: UIViewController {
 */
         
         // second option call method
-//        Webservices.getTopAlbumsApi(url: url!) { (response) in
+//        Webservices.getTopAlbumsApi(url: url) { (response) in
 //
 //            self.aryDisplayMore = response.feed.results
 //
